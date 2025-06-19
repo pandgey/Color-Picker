@@ -21,20 +21,52 @@ colorPicker.addEventListener("input", () => {
 
 // Function to convert hex to RGB
 function hexToRgb(hex) {
-    noHex = hex.replace('#', '');
+    const noHex = hex.replace('#', '');
 
     // Convert from string to integer for rgb since rgb is in integer format
-    const tempHolder = parseInt(noHex, 16);
+    const rgbInt = parseInt(noHex, 16);
 
     // scale by shifting bits
-    const r = (tempHolder >> 16) & 255;
-    const g = (tempHolder >> 8) & 255;
-    const b = tempHolder & 255;
+    const r = (rgbInt >> 16) & 255;
+    const g = (rgbInt >> 8) & 255;
+    const b = rgbInt & 255;
     
     return { r, g, b };
 }
 
 // Function to convert RGB to HSL
 function rgbToHsl(r, g, b) {
-    continue;
+
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    const maxVal = Math.max(r, g, b);
+    const minVal = Math.min(r, g, b);
+    let h, s, l = (maxVal + minVal) / 2;
+    const diff = maxVal - minVal;
+
+    // restrict the value of diff to be integer
+    if (diff === 0) {
+        h = s = 0; // achromatic
+    } else {
+        if (l < 0.5) {
+            s = diff / (maxVal + minVal);
+        } else {
+            s = diff / (2 - maxVal - minVal);
+        } switch (maxVal) {
+            case r: h = (g - b) / diff + (g < b ? 6 : 0); 
+                break;
+            case g: h = (b - r) / diff + 2; 
+                break;
+            case b: h = (r - g) / diff + 4; 
+                break;
+        }
+        h /= 6;
+    }
+    return {
+        h: Math.round(h * 360),
+        s: Math.round(s * 100),
+        l: Math.round(l * 100)
+    };
 }
