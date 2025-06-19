@@ -21,7 +21,17 @@ colorPicker.addEventListener("input", () => {
 
 // Function to convert hex to RGB
 function hexToRgb(hex) {
-    continue;
+    noHex = hex.replace('#', '');
+
+    // Convert from string to integer for rgb since rgb is in integer format
+    const tempHolder = parseInt(noHex, 16);
+
+    // scale by shifting bits
+    const r = (tempHolder >> 16) & 255;
+    const g = (tempHolder >> 8) & 255;
+    const b = tempHolder & 255;
+    
+    return { r, g, b };
 }
 
 // Function to convert RGB to HSL
