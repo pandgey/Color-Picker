@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Picker App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #1e1e1e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .picker-container {
+      background: #2a2a2a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .color-box {
+      width: 100px;
+      height: 100px;
+      margin: 1rem auto;
+      border-radius: 10px;
+      border: 2px solid #fff;
+    }
+    input[type="color"] {
+      width: 80px;
+      height: 40px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+    .value-list p {
+      margin: 0.4rem 0;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="picker-container">
+    <h1>🎨 Color Picker</h1>
+    <input type="color" id="colorPicker">
+    <div class="color-box" id="colorBox"></div>
+    <div class="value-list" id="values">
+      <p>HEX: #000000</p>
+      <p>RGB: (0, 0, 0)</p>
+      <p>HSL: (0°, 0%, 0%)</p>
+    </div>
+  </div>
+
+  <script>
+    const picker = document.getElementById('colorPicker');
+    const box = document.getElementById('colorBox');
+    const values = document.getElementById('values');
+
+    picker.addEventListener('input', () => {
+      const hex = picker.value;
+      const rgb = hexToRgb(hex);
+      const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+
+      box.style.backgroundColor = hex;
+      values.innerHTML = `
+        <p>HEX: ${hex}</p>
+        <p>RGB: (${rgb.r}, ${rgb.g}, ${rgb.b})</p>
+        <p>HSL: (${hsl.h}°, ${hsl.s}%, ${hsl.l}%)</p>
+      `;
+    });
+
+    function hexToRgb(hex) {
+      const bigint = parseInt(hex.slice(1), 16);
+      return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255
+      };
+    }
+
+    function rgbToHsl(r, g, b) {
+      r /= 255;
+      g /= 255;
+      b /= 255;
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      let h, s, l = (max + min) / 2;
+
+      if (max === min) {
+        h = s = 0;
+      } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+
+      return {
+        h: Math.round(h * 360),
+        s: Math.round(s * 100),
+        l: Math.round(l * 100)
+      };
+    }
+  </script>
+</body>
+</html>
