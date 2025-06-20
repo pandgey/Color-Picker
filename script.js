@@ -94,8 +94,8 @@ previewText.addEventListener("input", () => {
 
 // Random button generator
 
-const randomBttn = document.getElementById("randomBtn");
-randomBttn.addEventListener("click", () => {
+const randomColor = document.getElementById("randomBtn");
+randomColor.addEventListener("click", () => {
     const randomHex = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     colorPicker.value = randomHex;
     colorPicker.dispatchEvent(new Event("input")); // Trigger input event to update UI
