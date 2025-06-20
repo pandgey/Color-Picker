@@ -2,27 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Color Picker App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Color Wheel Picker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="picker-container">
-        <h1>🎨 Color Picker</h1>
-        <input type="color" id="colorPicker">
-        <div class="color-box" id="colorBox"></div>
+  <div class="picker-container">
+    <h1>🎨 Color Wheel Picker</h1>
+    <canvas id="colorWheel" width="300" height="300"></canvas>
+    <div class="color-box" id="colorBox"></div>
+    <button id="randomColor">Random Color</button>
 
-        <button id = "randomColor">Random Color</button>
-
-        <div class="value-list" id="values">
-            <p>HEX: #000000</p>
-            <p>RGB: (0, 0, 0)</p>
-            <p>HSL: (0°, 0%, 0%)</p>
-        </div>
+    <div class="value-list" id="values">
+      <p>HEX: #000000</p>
+      <p>RGB: (0, 0, 0)</p>
+      <p>HSL: (0°, 0%, 0%)</p>
     </div>
+  </div>
 
-    <script src="script.js"> </script>
+  <script src="script.js"></script>
 </body>
+
 </html>

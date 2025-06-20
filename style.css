@@ -1,41 +1,49 @@
-    body {
-        font-family: 'Arial', sans-serif;
-        background: #1e1e1e;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-    }
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1e1e1e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
 
-    .picker-container {
-        background: #2a2a2a;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        text-align: center;
-    }
+.picker-container {
+    background: #2a2a2a;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
 
-    .color-box {
-        width: 100px;
-        height: 100px;
-        margin: 1rem auto;
-        border-radius: 10px;
-        border: 2px solid #fff;
-    }
+.color-box {
+    width: 100px;
+    height: 100px;
+    margin: 1rem auto;
+    border-radius: 10px;
+    border: 2px solid #fff;
+}
 
-    input[type="color"] {
-        width: 80px;
-        height: 40px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        margin-bottom: 1rem;
-    }
+canvas {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    cursor: crosshair;
+}
 
-    .value-list p {
-        margin: 0.4rem 0;
-        font-size: 1.1rem;
-    }
+button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    background: #00b894;
+    color: white;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.value-list p {
+    margin: 0.4rem 0;
+    font-size: 1.1rem;
+}
