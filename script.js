@@ -6,6 +6,7 @@ const colorValues = document.getElementById("values");
 const colorWheel = document.getElementById("colorWheel");
 const Selectedcolor = colorWheel.getContext("2d");
 const radius = colorWheel.width / 2;
+const randomColor = document.getElementById("randomColor");
 
 // Create the color wheel
 function drawColorWheel() {
@@ -83,13 +84,9 @@ function hexToRgb(hex) {
 
 // Function to convert RGB to Hex
 function rgbToHex(r, g, b) {
-    return "#" + [r, g, b].map(x => {
-        const hex = x.toString(16);
-        if (hex.length < 2) {
-            return "0" + hex; // pad with zero if necessary
-        }
-        return hex;
-    }).join("");
+    const hexConverter = x => x.toString(16).padStart(2, '0');
+    const hex = [r, g, b].map(hexConverter).join('');
+    return "#" + hex;
 }
 
 // Function to convert RGB to HSL
@@ -127,4 +124,12 @@ function rgbToHsl(r, g, b) {
         s: Math.round(s * 100),
         l: Math.round(l * 100)
     };
+}
+
+// Function to generate a random color
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return rgbToHex(r, g, b);
 }
