@@ -1,4 +1,4 @@
-//START
+// CORE FEATURE OF COLOR PICKER
 
 const colorPicker = document.getElementById("colorPicker");
 const colorBox = document.getElementById("colorBox");
@@ -70,3 +70,16 @@ function rgbToHsl(r, g, b) {
         l: Math.round(l * 100)
     };
 }
+
+// Button to allow user to copy the HEX value
+const copyBttn = document.getElementById("copyBtn");
+const copyMsg = document.getElementById("copyMsg");
+
+copyBttn.addEventListener("click", () => {
+    const hex = colorPicker.value;
+    navigator.clipboard.writeText(hex).then(() => {
+        copyMsg.textContent = "The HEX value has been copied!";
+        setTimeout(() => 
+            copyMsg.textContent = "", 2000);
+    });
+});
