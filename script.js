@@ -126,6 +126,21 @@ function rgbToHsl(r, g, b) {
     };
 }
 
+// Event listener for the random color button
+randomColor.addEventListener("click", () => {
+    const randomHex = getRandomColor();
+    const rgb = hexToRgb(randomHex);
+    const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+
+    // Update the color box and display values
+    colorBox.style.backgroundColor = randomHex;
+    colorValues.innerHTML = `
+        <p>HEX: ${randomHex}</p>
+        <p>RGB: (${rgb.r}, ${rgb.g}, ${rgb.b})</p>
+        <p>HSL: (${hsl.h}°, ${hsl.s}%, ${hsl.l}%)</p>
+    `;
+});
+
 // Function to generate a random color
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256);
