@@ -10,16 +10,17 @@ const radius = colorWheel.width / 2;
 // Create the color wheel
 function drawColorWheel() {
     Selectedcolor.clearRect(0, 0, colorWheel.width, colorWheel.height);
+
     for (let i = 0; i < 360; i++) {
-        const angle = (i * Math.PI) / 180;
-        const x = radius + radius * Math.cos(angle);
-        const y = radius + radius * Math.sin(angle);
+        const startAngle = (i - 1) * Math.PI / 180;
+        const endAngle = i * Math.PI / 180;
+
         Selectedcolor.beginPath();
         Selectedcolor.moveTo(radius, radius);
-        Selectedcolor.lineTo(x, y);
-        Selectedcolor.strokeStyle = `hsl(${i}, 100%, 50%)`;
-        Selectedcolor.lineWidth = 10;
-        Selectedcolor.stroke();
+        Selectedcolor.arc(radius, radius, radius, startAngle, endAngle);
+        Selectedcolor.closePath();
+        Selectedcolor.fillStyle = `hsl(${i}, 100%, 50%)`;
+        Selectedcolor.fill();
     }
 }
 drawColorWheel();
@@ -35,7 +36,7 @@ colorWheel.addEventListener("click", (event) => {
     const distance = Math.sqrt(dx * dx + dy * dy);
 
     if (distance <= radius) {
-        const imageData = ctx.getImageData(x, y, 1, 1).data;
+        const imageData = Selectedcolor.getImageData(x, y, 1, 1).data;
         const [r, g, b] = imageData;
 
         const hex = rgbToHex(r, g, b);
