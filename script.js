@@ -83,3 +83,20 @@ copyBttn.addEventListener("click", () => {
             copyMsg.textContent = "", 2000);
     });
 });
+
+// Live text preview
+
+const previewTxt = document.getElementById("textInput");
+previewText.addEventListener("input", () => {
+    const hex = colorPicker.value;
+    previewTxt.style.color = hex;
+});
+
+// Random button generator
+
+const randomBttn = document.getElementById("randomBtn");
+randomBttn.addEventListener("click", () => {
+    const randomHex = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    colorPicker.value = randomHex;
+    colorPicker.dispatchEvent(new Event("input")); // Trigger input event to update UI
+});
