@@ -3,6 +3,52 @@
 const colorPicker = document.getElementById("colorPicker");
 const colorBox = document.getElementById("colorBox");
 const colorValues = document.getElementById("values");
+const colorWheel = document.getElementById("colorWheel");
+const Selectedcolor = colorWheel.getContext("2d");
+const radius = colorWheel.width / 2;
+
+// Create the color wheel
+function drawColorWheel() {
+    Selectedcolor.clearRect(0, 0, colorWheel.width, colorWheel.height);
+    for (let i = 0; i < 360; i++) {
+        const angle = (i * Math.PI) / 180;
+        const x = radius + radius * Math.cos(angle);
+        const y = radius + radius * Math.sin(angle);
+        Selectedcolor.beginPath();
+        Selectedcolor.moveTo(radius, radius);
+        Selectedcolor.lineTo(x, y);
+        Selectedcolor.strokeStyle = `hsl(${i}, 100%, 50%)`;
+        Selectedcolor.lineWidth = 10;
+        Selectedcolor.stroke();
+    }
+}
+drawColorWheel();
+
+colorWheel.addEventListener("click", (event) => {
+    
+    const rect = colorWheel.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const dx = x - radius;
+    const dy = y - radius;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance <= radius) {
+        const imageData = ctx.getImageData(x, y, 1, 1).data;
+        const [r, g, b] = imageData;
+
+        const hex = rgbToHex(r, g, b);
+        const hsl = rgbToHsl(r, g, b);
+
+        colorBox.style.backgroundColor = hex;
+        colorValues.innerHTML = `
+            <p>HEX: ${hex}</p>
+            <p>RGB: (${r}, ${g}, ${b})</p>
+            <p>HSL: (${hsl.h}°, ${hsl.s}%, ${hsl.l}%)</p>
+        `;
+    }
+});
 
 // listener for user input
 colorPicker.addEventListener("input", () => {
@@ -32,6 +78,17 @@ function hexToRgb(hex) {
     const b = rgbInt & 255;
     
     return { r, g, b };
+}
+
+// Function to convert RGB to Hex
+function rgbToHex(r, g, b) {
+    return "#" + [r, g, b].map(x => {
+        const hex = x.toString(16);
+        if (hex.length < 2) {
+            return "0" + hex; // pad with zero if necessary
+        }
+        return hex;
+    }).join("");
 }
 
 // Function to convert RGB to HSL
