@@ -9,23 +9,59 @@
 </head>
 
 <body>
-  <div class = "picker-container">
-    <h1>Color Wheel Picker</h1>
-    <canvas id = "colorWheel" width = "300" height = "300"></canvas>
+  <div class="main-container">
+    <div class="picker-container">
+      <h1>Color Wheel Picker</h1>
+      <canvas id="colorWheel" width="300" height="300"></canvas>
 
-    <div class = "slider-container">
-      <label for = "lightness">Lightness:</label>
-      <input type = "range" id = "lightness" min = "0" max = "100" value = "50">
-      <span class = "slider-value" id = "lightnessValue">50%</span>
+      <div class="slider-container">
+        <label for="lightness">Lightness:</label>
+        <input type="range" id="lightness" min="0" max="100" value="50">
+        <span class="slider-value" id="lightnessValue">50%</span>
+      </div>
+
+      <div class="color-box" id="colorBox"></div>
+      <button id="randomColor">Random Color</button>
+
+      <div class="value-list" id="values">
+        <p>HEX: #808080</p>
+        <p>RGB: (128, 128, 128)</p>
+        <p>HSL: (0°, 0%, 50%)</p>
+      </div>
     </div>
 
-    <div class = "color-box" id = "colorBox"></div>
-    <button id = "randomColor">Random Color</button>
+    <div class="harmonies-container">
+      <h2>Color Harmonies</h2>
+      
+      <div class="harmony-section">
+        <div class="harmony-title">Complementary</div>
+        <div class="harmony-colors" id="complementary"></div>
+      </div>
 
-    <div class = "value-list" id = "values">
-      <p>HEX: #808080</p>
-      <p>RGB: (128, 128, 128)</p>
-      <p>HSL: (0°, 0%, 50%)</p>
+      <div class="harmony-section">
+        <div class="harmony-title">Triadic</div>
+        <div class="harmony-colors" id="triadic"></div>
+      </div>
+
+      <div class="harmony-section">
+        <div class="harmony-title">Analogous</div>
+        <div class="harmony-colors" id="analogous"></div>
+      </div>
+
+      <div class="harmony-section">
+        <div class="harmony-title">Split Complementary</div>
+        <div class="harmony-colors" id="splitComplementary"></div>
+      </div>
+
+      <div class="harmony-section">
+        <div class="harmony-title">Tetradic</div>
+        <div class="harmony-colors" id="tetradic"></div>
+      </div>
+
+      <div class="harmony-section">
+        <div class="harmony-title">Monochromatic</div>
+        <div class="harmony-colors" id="monochromatic"></div>
+      </div>
     </div>
   </div>
 
