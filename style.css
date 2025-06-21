@@ -47,3 +47,23 @@ button {
     margin: 0.4rem 0;
     font-size: 1.1rem;
 }
+
+opacity-slider {
+    width: 80%;
+    margin: 1rem 0;
+    appearance: none;
+    height: 8px;
+    background: linear-gradient(to right, black, white);
+    border-radius: 5px;
+    outline: none;
+}
+
+#lightnessSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 4px #000;
+}
