@@ -56,10 +56,10 @@ class ColorHarmonies {
         const colorDiv = document.createElement('div');
         colorDiv.className = `harmony-color ${isPrimary ? 'primary' : ''}`;
         colorDiv.style.backgroundColor = `hsl(${colorData.h}, ${colorData.s}%, ${colorData.l}%)`;
-        
+
         const rgb = hslToRgb(colorData.h, colorData.s, colorData.l);
         const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
-        
+
         const tooltip = document.createElement('div');
         tooltip.className = 'color-tooltip';
         tooltip.textContent = hex;
@@ -75,7 +75,16 @@ class ColorHarmonies {
             });
         });
 
-        return colorDiv;
+        const hexLabel = document.createElement('p');
+        hexLabel.className = 'harmony-color-label';
+        hexLabel.textContent = hex;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'harmony-color-wrapper';
+        wrapper.appendChild(colorDiv);
+        wrapper.appendChild(hexLabel);
+
+        return wrapper;
     }
 
     // Update all harmony displays

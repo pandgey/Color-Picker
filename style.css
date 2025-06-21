@@ -90,6 +90,20 @@
         border-width: 3px;
     }
 
+    .harmony-color-wrapper {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
+    }
+
+    .harmony-color-label {
+        font-size: 12px;
+        margin-top: 4px;
+        user-select: all;
+        color: #edd1ff;
+    }
+
+
     .color-tooltip {
         position: absolute;
         bottom: -25px;
