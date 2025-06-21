@@ -12,23 +12,26 @@
   <div class="picker-container">
     <h1>Color Wheel Picker</h1>
     <canvas id="colorWheel" width="300" height="300"></canvas>
-    
-    <div class = "opacity-slider">
-      <label for="opacity">Opacity:</label>
-      <input type="range" id="opacity" min="0" max="100" value="50">
+
+    <div class="slider-container">
+      <label for="lightness">Lightness:</label>
+      <input type="range" id="lightness" min="0" max="100" value="50">
+      <span class="slider-value" id="lightnessValue">50%</span>
     </div>
+
+
 
     <div class="color-box" id="colorBox"></div>
     <button id="randomColor">Random Color</button>
 
     <div class="value-list" id="values">
-      <p>HEX: #000000</p>
-      <p>RGB: (0, 0, 0)</p>
-      <p>HSL: (0°, 0%, 0%)</p>
+      <p>HEX: #808080</p>
+      <p>RGB: (128, 128, 128)</p>
+      <p>HSL: (0°, 0%, 50%)</p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src = "script.js"> </script>
 </body>
 
 </html>
