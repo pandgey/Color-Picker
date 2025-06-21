@@ -48,9 +48,16 @@ button {
     font-size: 1.1rem;
 }
 
-opacity-slider {
-    width: 80%;
+.opacity-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin: 1rem 0;
+}
+
+.opacity-slider input {
+    width: 200px;
     appearance: none;
     height: 8px;
     background: linear-gradient(to right, black, white);
