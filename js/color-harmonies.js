@@ -8,7 +8,7 @@ class ColorHarmonies {
             analogous: document.getElementById("analogous"),
             splitComplementary: document.getElementById("splitComplementary"),
             tetradic: document.getElementById("tetradic"),
-            monochromatic: document.getElementById("monochromatic")
+            monochromatic: document.getElementById("monochromatic"),
             square: document.getElementById("square")
         };
     }
