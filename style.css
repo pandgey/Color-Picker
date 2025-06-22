@@ -240,7 +240,7 @@
             flex-direction: column;
             align-items: center;
         }
-        
+
         .harmonies-container {
             max-width: 400px;
             min-width: 280px;
@@ -251,17 +251,17 @@
         .picker-container {
             padding: 1.5rem;
         }
-        
+
         canvas {
             width: 250px;
             height: 250px;
         }
-        
+
         .slider-container {
             flex-direction: column;
             gap: 10px;
         }
-        
+
         .slider-container input {
             width: 150px;
         }
