@@ -111,6 +111,7 @@ class ColorHarmonies {
       splitComplementary: 0,
       tetradic: 0,
       monochromatic: 2,
+      square: 0
     };
 
     // Populate each harmony type
