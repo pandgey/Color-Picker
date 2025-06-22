@@ -9,6 +9,7 @@ class ColorHarmonies {
             splitComplementary: document.getElementById("splitComplementary"),
             tetradic: document.getElementById("tetradic"),
             monochromatic: document.getElementById("monochromatic")
+            square: document.getElementById("square")
         };
     }
 
@@ -47,6 +48,12 @@ class ColorHarmonies {
                 { h, s, l },
                 { h, s, l: Math.min(l + 15, 90) },
                 { h, s, l: Math.min(l + 30, 90) }
+            ],
+            square: [
+                { h, s, l },
+                { h: (h + 90) % 360, s, l },
+                { h: (h + 180) % 360, s, l },
+                { h: (h + 270) % 360, s, l }
             ]
         };
     }
