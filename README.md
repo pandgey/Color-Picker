@@ -1,7 +1,7 @@
 # Color-Picker
 
-This is a program to help user create or select a suitable color harmony for their needs. All they have to do is pick a color that they want and the algorithm will show them each color harmonies! 
+This is a program to help user create or select a suitable color harmony for their needs. All they have to do is pick a color that they want and the algorithm will show them each color harmonies! I plan to add more after I experiment or see more color harmonies.
 
 Isn't that cool? 
 
-Feel free to contribute to this!
+Feel free to contribute to this! I would love to hear your thoughts on this too! 
