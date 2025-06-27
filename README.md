@@ -7,3 +7,7 @@ Isn't that cool?
 Feel free to contribute to this! I would love to hear your thoughts on this too! 
 
 im still configuring my server to ensure this works, this will be updated once it works! Come back in prob a few weeks!
+
+# Showcase
+
+![color-picker showcase](asset/showcase.png)
