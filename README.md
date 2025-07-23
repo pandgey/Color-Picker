@@ -11,3 +11,6 @@ im still configuring my server to ensure this works, this will be updated once i
 # Showcase
 
 ![color-picker showcase](asset/showcase.png)
+
+# To-do list
+- Implement AI color scheme generator
