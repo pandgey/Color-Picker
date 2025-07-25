@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   colorPicker.updateDisplay(270, 30, 50);
 
   // Add event listener for random palette button
-  const randomPaletteBtn = document.getElementById('generate-random-palette');
-  if (randomPaletteBtn && window.aiPaletteGenerator) {
-    randomPaletteBtn.addEventListener('click', () => {
+  const paletteCreatorBtn = document.getElementById('palette-creator');
+  if (paletteCreatorBtn && window.aiPaletteGenerator) {
+    paletteCreatorBtn.addEventListener('click', () => {
       window.aiPaletteGenerator.generateRandomPalette();
     });
   }
