@@ -24,4 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     colorPicker.lightnessSlider.value + "%";
   colorWheel.draw(50);
   colorPicker.updateDisplay(270, 30, 50);
+
+  // Add event listener for random palette button
+  const randomPaletteBtn = document.getElementById('generate-random-palette');
+  if (randomPaletteBtn && window.aiPaletteGenerator) {
+    randomPaletteBtn.addEventListener('click', () => {
+      window.aiPaletteGenerator.generateRandomPalette();
+    });
+  }
 });
