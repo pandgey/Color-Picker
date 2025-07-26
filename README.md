@@ -13,4 +13,5 @@ im still configuring my server to ensure this works, this will be updated once i
 ![color-picker showcase](asset/showcase.png)
 
 # To-do list
-- Implement AI color scheme generator
+- ~Implement AI color scheme generator~ (Did it using Colormind API to generate random color palette)
+- Still thinking...
